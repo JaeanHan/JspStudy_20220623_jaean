@@ -11,5 +11,6 @@
 	<h1>사용자 정보</h1>
 	<label>이름: </label>
 	<input type="text" value=" ${name}" />
+	<p>test</p>
 </body>
 </html>
