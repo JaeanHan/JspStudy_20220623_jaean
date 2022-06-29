@@ -30,6 +30,11 @@ public class SignupServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		System.out.println("회원가입 요청");
 		
-				
+		SignupReqDto signupReqDto = SignupReqDto.builder()
+				.name(request.getParameter("name"))
+				.email(request.getParameter("email"))
+				.username(request.getParameter("username"))
+				.password(request.getParameter("password"))
+				.build();
 	}
 }
