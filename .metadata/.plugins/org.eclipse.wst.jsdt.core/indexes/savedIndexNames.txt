@@ -1,0 +1,6 @@
+INDEX VERSION 1.4+C:\java_jah\spring\workspace\JspStudy_20220623_jaean\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+602850389.index
+1013082787.index
+67793213.index
+1753886486.index
+2398010501.index

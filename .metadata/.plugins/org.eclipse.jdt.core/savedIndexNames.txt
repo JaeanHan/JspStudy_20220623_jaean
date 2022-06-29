@@ -1,0 +1,1 @@
+INDEX VERSION 1.131+C:\java_jah\spring\workspace\JspStudy_20220623_jaean\.metadata\.plugins\org.eclipse.jdt.core
