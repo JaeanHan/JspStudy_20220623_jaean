@@ -1,11 +1,19 @@
 package service;
 
-public class UserServiceImpl implements UserService {
+import domain.dao.UserDao;
+import domain.dao.UserDaoImpl;
+import web.dto.SignupReqDto;
 
+public class UserServiceImpl implements UserService {
+	private final UserDao userDao; 
+	
+	public UserServiceImpl() {
+		userDao = new UserDaoImpl();
+	}
+	
 	@Override
-	public boolean createUser() throws Exception {
-		System.out.println("회원가입 서비스 실행");
-		return false;
+	public boolean createUser(SignupReqDto signupReqDto) throws Exception {
+		return userDao.save(signupReqDto.toEntity()) > 0;
 	}
 
 	@Override

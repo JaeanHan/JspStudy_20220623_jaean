@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.UserServiceImpl;
 import web.dto.SignupReqDto;
 
 /*
@@ -21,6 +22,12 @@ import web.dto.SignupReqDto;
 @WebServlet("/signup")
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	
+	private final UserServiceImpl userServiceImpl;
+	
+	public SignupServlet() {
+		userServiceImpl = new UserServiceImpl();
+	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/signup.jsp").forward(request, response);					
@@ -36,5 +43,18 @@ public class SignupServlet extends HttpServlet {
 				.username(request.getParameter("username"))
 				.password(request.getParameter("password"))
 				.build();
+		
+		try {
+			if (userServiceImpl.createUser(signupReqDto)) {
+				System.out.println("회원가입 성공");
+				
+			} else {
+				System.out.println("회원가입 실패");
+			}
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			
+		}
 	}
 }
