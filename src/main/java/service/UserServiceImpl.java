@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public boolean checkUsername(String username) throws Exception {
+		return userDao.findUserByUsername(username) != null;
+	}
+
+	@Override
 	public boolean updateUser() throws Exception {
 		return false;
 	}
@@ -30,5 +35,6 @@ public class UserServiceImpl implements UserService {
 	public boolean deleteUser() throws Exception {
 		return false;
 	}
+
 
 }
