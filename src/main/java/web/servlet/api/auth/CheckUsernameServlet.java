@@ -26,7 +26,7 @@ public class CheckUsernameServlet extends HttpServlet {
 		response.setContentType("text/plain; charsetUTF-8");
 		
 		try {
-			response.getWriter().print(userService.checkUsername(username));
+			response.getWriter().print(userService.checkUsername(username)); // Ajax 요청에 대한 응답으로 데이터 전송
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

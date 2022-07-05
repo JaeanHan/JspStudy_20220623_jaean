@@ -2,6 +2,7 @@ package service;
 
 import domain.dao.UserDao;
 import domain.dao.UserDaoImpl;
+import domain.entity.User;
 import web.dto.SignupReqDto;
 
 public class UserServiceImpl implements UserService {
@@ -34,6 +35,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public boolean deleteUser() throws Exception {
 		return false;
+	}
+
+	@Override
+	public User loadUser(String username, String password) throws Exception {
+		User user = userDao.findUserByUsername(username);
+		if(user == null) {
+			return null; //원래는 throws Exception
+		} else {
+			return user.getPassword().equals(password)? user : null;			
+		}
 	}
 
 
