@@ -40,7 +40,6 @@ public class UserDaoImpl implements UserDao {
 				+ ");";
 		con = pool.getConnection();
 		
-		
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, user.getName());

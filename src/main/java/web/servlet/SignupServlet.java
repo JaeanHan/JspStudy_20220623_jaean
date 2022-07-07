@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.UserService;
 import service.UserServiceImpl;
 import web.dto.SignupReqDto;
 
@@ -24,10 +25,10 @@ import web.dto.SignupReqDto;
 public class SignupServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private final UserServiceImpl userServiceImpl;
+	private final UserService userService;
 	
 	public SignupServlet() {
-		userServiceImpl = new UserServiceImpl();
+		userService = new UserServiceImpl();
 	}
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,7 +49,7 @@ public class SignupServlet extends HttpServlet {
 		try {
 			PrintWriter out = response.getWriter();
 			
-			if (userServiceImpl.createUser(signupReqDto)) {
+			if (userService.createUser(signupReqDto)) {
 				System.out.println("회원가입 성공");
 				out.print(true);
 			} else {
