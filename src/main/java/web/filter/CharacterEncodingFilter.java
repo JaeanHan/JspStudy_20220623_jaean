@@ -1,6 +1,7 @@
 package web.filter;
 
 import java.io.IOException;
+
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -10,6 +11,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 import javax.servlet.http.HttpServletRequest;
+
+import config.ServletContextConfig;
 
 @WebFilter("/*")
 public class CharacterEncodingFilter extends HttpFilter implements Filter {
@@ -34,6 +37,7 @@ public class CharacterEncodingFilter extends HttpFilter implements Filter {
 	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
+		ServletContextConfig.getInstance();
 	}
 
 }
